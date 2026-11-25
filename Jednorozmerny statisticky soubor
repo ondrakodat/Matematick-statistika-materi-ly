@@ -1,1 +1,502 @@
 
+# Jednorozměrný statistický soubor
+
+Kapitola se zabývá tím, jak zpracovat, zjednodušit a statisticky popsat velké množství hodnot jedné sledované proměnné.
+
+Existují dva hlavní způsoby zhuštění statistických údajů:
+
+1. **Intervalové rozdělení četností.**
+2. **Konstrukce statistických charakteristik a kvantilů.**
+
+---
+
+## 1. Jednorozměrný statistický soubor
+
+**Jednorozměrný statistický soubor** obsahuje pouze jeden sledovaný statistický znak (proměnnou).
+
+Například sledujeme příjmy 51 osob. Každá osoba má jednu hodnotu příjmu, takže se jedná o jednorozměrný statistický soubor.
+
+## 2. Intervalové rozdělení četností
+
+První způsob zhuštění dat spočívá v rozdělení jednotlivých hodnot do intervalů. Následně zjišťujeme, kolik pozorování spadá do každého intervalu.
+
+### 2.1 Příklad intervalového rozdělení
+
+Máme údaje o příjmech 51 osob:
+
+| Interval příjmů (Kč) | Počet osob |
+|---|---:|
+| 6 100–8 900 | 3 |
+| 8 900–11 700 | 12 |
+| 11 700–14 500 | 12 |
+| 14 500–17 300 | 12 |
+| 17 300–20 100 | 7 |
+| 20 100–22 900 | 4 |
+| 22 900–25 700 | 1 |
+| **Celkem** | **51** |
+
+Původně máme 51 jednotlivých hodnot, ale po rozdělení do intervalů získáme přehlednější tabulku.
+
+### 2.2 Druhy četností
+
+**Absolutní četnost**
+
+Udává počet pozorování, která se nacházejí v konkrétním intervalu.
+
+Například v intervalu 8 900–11 700 Kč se nachází 12 osob.
+
+**Relativní četnost**
+
+Udává, jakou část celkového souboru představuje daný interval.
+
+Vzorec:
+
+$$
+f_i = \frac{n_i}{n}
+$$
+
+- $n_i$ – počet hodnot v daném intervalu.
+- $n$ – celkový počet pozorování.
+
+Příklad:
+
+$$
+f_i = \frac{12}{51} \approx 0{,}2353 = 23{,}53\,\%
+$$
+
+**Kumulativní četnost**
+
+Udává postupně nasčítaný počet pozorování od prvního intervalu až po aktuální interval.
+
+Příklad:
+
+- První interval: 3 osoby.
+- Druhý interval: 3 + 12 = 15 osob.
+- Třetí interval: 15 + 12 = 27 osob.
+
+Kumulativní četnost tedy ukazuje, kolik pozorování se nachází dohromady ve všech předchozích intervalech včetně aktuálního.
+
+### 2.3 Určení počtu intervalů
+
+Pro orientační určení počtu intervalů existují tři pravidla:
+
+| Pravidlo | Vzorec |
+|---|---|
+| První pravidlo | $k \leq 5\log_{10}(n)$ |
+| Druhé pravidlo | $k \approx \sqrt{n}$ |
+| Sturgesovo pravidlo | $k \approx 1 + 3{,}3\log_{10}(n)$ |
+
+V našem příkladu máme 51 pozorování:
+
+- První pravidlo: přibližně 8,5.
+- Druhé pravidlo: přibližně 7,14.
+- Sturgesovo pravidlo: přibližně 6,64.
+
+Proto zvolíme přibližně 7 intervalů.
+
+### 2.4 Výpočet délky intervalu
+
+Nejdříve vypočítáme variační rozpětí:
+
+$$
+R = x_{\max} - x_{\min}
+$$
+
+Následně vypočítáme délku jednoho intervalu:
+
+$$
+h = \frac{R}{k}
+$$
+
+Kde:
+
+- $R$ – variační rozpětí.
+- $x_{\max}$ – největší hodnota.
+- $x_{\min}$ – nejmenší hodnota.
+- $k$ – počet intervalů.
+- $h$ – délka intervalu.
+
+**Důležité:** Délku intervalu zaokrouhlujeme nahoru, abychom zajistili pokrytí všech pozorování.
+
+### 2.5 Grafické znázornění četností
+
+Z intervalového rozdělení můžeme vytvořit několik statistických grafů.
+
+**Histogram**
+
+- Zobrazuje četnosti jednotlivých intervalů pomocí sousedících sloupců.
+- Na vodorovné ose jsou intervaly hodnot.
+- Na svislé ose jsou četnosti.
+
+**Polygon četností**
+
+- Vzniká spojením bodů představujících četnosti jednotlivých intervalů v jejich středech.
+- Umožňuje vizuálně sledovat průběh rozdělení četností.
+
+---
+
+## 3. Kvantily
+
+**Kvantil** je hodnota kvantitativního statistického znaku, která rozdělí uspořádaný statistický soubor podle určitého procentuálního podílu.
+
+Nejdříve musíme všechny hodnoty seřadit od nejmenší po největší.
+
+Například:
+
+$$
+X = (10,20,30,40,50,60,70,80,90,100)
+$$
+
+### 3.1 Druhy kvantilů
+
+| Druh | Počet částí | Velikost jedné části |
+|---|---:|---:|
+| Kvartily | 4 | 25 % |
+| Kvintily | 5 | 20 % |
+| Decily | 10 | 10 % |
+| Percentily | 100 | 1 % |
+
+- **Kvantil** – obecný pojem pro dělení dat podle určitého podílu.
+- **Kvartil** – rozděluje soubor na 4 stejně velké části.
+- **Kvintil** – rozděluje soubor na 5 stejně velkých částí.
+- **Decil** – rozděluje soubor na 10 stejně velkých částí.
+- **Percentil** – rozděluje soubor na 100 stejně velkých částí.
+
+Každý kvartil, kvintil, decil a percentil je kvantilem.
+
+### 3.2 Medián
+
+**Medián** je 50% kvantil, který rozděluje uspořádaný statistický soubor na dvě stejně velké poloviny.
+
+Příklad:
+
+$$
+X = (10,20,30,40,50,60,70)
+$$
+
+Protože máme 7 hodnot, prostřední hodnotou je čtvrtá hodnota:
+
+$$
+\tilde{x}_{50} = 40
+$$
+
+### 3.3 Dolní a horní kvantily
+
+- **Dolní kvantily** jsou kvantily menší než medián.
+- **Horní kvantily** jsou kvantily větší než medián.
+
+Příklady:
+
+- První kvartil $Q_1$ – 25% kvantil.
+- Druhý kvartil $Q_2$ – 50% kvantil (medián).
+- Třetí kvartil $Q_3$ – 75% kvantil.
+
+---
+
+## 4. Výpočet kvantilů
+
+Při výpočtu kvantilů musíme mít hodnoty statistického souboru nejprve seřazené vzestupně.
+
+### 4.1 Výpočet mediánu
+
+Pro lichý počet pozorování určíme prostřední pořadovou hodnotu:
+
+$$
+p = \frac{n+1}{2}
+$$
+
+Kde:
+
+- $p$ – pořadové číslo hledané hodnoty.
+- $n$ – počet pozorování.
+
+Příklad pro 51 osob:
+
+$$
+p = \frac{51+1}{2} = 26
+$$
+
+Medián je tedy 26. hodnota v seřazeném souboru.
+
+V našem příkladu:
+
+$$
+\tilde{x}_{50} = 14390
+$$
+
+### 4.2 Výpočet dolního kvartilu (Q1)
+
+Dolní kvartil odpovídá 25% kvantilu.
+
+Pořadové číslo vypočítáme:
+
+$$
+p_{25} = \frac{n+1}{4}
+$$
+
+Dosadíme:
+
+$$
+p_{25} = \frac{51+1}{4} = 13
+$$
+
+Hledáme tedy 13. hodnotu v seřazeném souboru.
+
+$$
+Q_1 = 10923
+$$
+
+### 4.3 Výpočet horního kvartilu (Q3)
+
+Horní kvartil odpovídá 75% kvantilu.
+
+Pořadové číslo vypočítáme:
+
+$$
+p_{75} = \frac{3(n+1)}{4}
+$$
+
+Dosadíme:
+
+$$
+p_{75} = \frac{3 \cdot 52}{4} = 39
+$$
+
+Hledáme tedy 39. hodnotu v seřazeném souboru.
+
+$$
+Q_3 = 16983
+$$
+
+### 4.4 Co když vyjde desetinné pořadové číslo?
+
+Pokud nám vyjde desetinné pořadové číslo, nemůžeme přímo vybrat konkrétní pozorování. Proto musíme hodnotu interpolovat mezi dvěma sousedními pozorováními.
+
+Příklad pro 136 pozorování:
+
+$$
+p_{25} = \frac{136+1}{4} = 34{,}25
+$$
+
+Máme dvě možnosti:
+
+**Metoda A – aritmetický průměr**
+
+$$
+Q_1 = \frac{x_{34}+x_{35}}{2}
+$$
+
+**Metoda B – vážený průměr (lineární interpolace)**
+
+$$
+Q_1 = 0{,}75x_{34}+0{,}25x_{35}
+$$
+
+Například pokud:
+
+$$
+x_{34}=100,\qquad x_{35}=120
+$$
+
+Potom:
+
+$$
+Q_1 = 0{,}75 \cdot 100 + 0{,}25 \cdot 120
+$$
+
+$$
+Q_1 = 105
+$$
+
+**Pozor:** Výsledek závisí na zvolené metodě výpočtu kvantilu. Existuje více statistických konvencí a různé statistické programy mohou používat odlišné postupy.
+
+---
+
+## 5. Kvantily z intervalového rozdělení
+
+Pokud máme k dispozici pouze intervalové rozdělení četností a nikoliv jednotlivé hodnoty, můžeme kvantily přibližně vypočítat pomocí lineární interpolace.
+
+Základní vzorec:
+
+$$
+\boxed{
+\tilde{x}_i =
+x_d +
+\frac{i-i_d}{i_h-i_d}
+(x_h-x_d)
+}
+$$
+
+Kde:
+
+- $x_d$ – dolní hranice intervalu.
+- $x_h$ – horní hranice intervalu.
+- $i$ – hledaný kvantil v procentech.
+- $i_d$ – kumulativní relativní četnost před daným intervalem.
+- $i_h$ – kumulativní relativní četnost na konci daného intervalu.
+
+Délku intervalu označujeme:
+
+$$
+h = x_h-x_d
+$$
+
+### 5.1 Příklad výpočtu mediánu
+
+Vypočítáme medián pomocí intervalového rozdělení:
+
+$$
+\tilde{x}_{50} =
+11700 +
+\frac{50-29{,}4}{52{,}9-29{,}4}
+\cdot 2800
+$$
+
+Výsledek:
+
+$$
+\boxed{\tilde{x}_{50} \approx 14155{,}6}
+$$
+
+### 5.2 Další příklady
+
+**Dolní kvartil:**
+
+$$
+\tilde{x}_{25} =
+8900 +
+\frac{25-5{,}9}{23{,}5}
+\cdot 2800
+$$
+
+$$
+\boxed{\tilde{x}_{25} \approx 11176{,}4}
+$$
+
+**Horní kvartil:**
+
+$$
+\tilde{x}_{75} =
+14500 +
+\frac{75-52{,}9}{23{,}5}
+\cdot 2800
+$$
+
+$$
+\boxed{\tilde{x}_{75} \approx 17132}
+$$
+
+**První decil:**
+
+$$
+\tilde{x}_{10} =
+8900 +
+\frac{10-5{,}9}{23{,}5}
+\cdot 2800
+$$
+
+$$
+\boxed{\tilde{x}_{10} \approx 9387{,}2}
+$$
+
+**Důležité:** Kvantily vypočítané z intervalového rozdělení jsou přibližné, protože již neznáme přesné pořadí jednotlivých hodnot uvnitř intervalů.
+
+---
+
+## 6. Statistické charakteristiky
+
+Statistické charakteristiky nám umožňují popsat soubor z různých úhlů pohledu.
+
+Rozlišujeme čtyři základní skupiny:
+
+| Charakteristika | Co popisuje | Příklady |
+|---|---|---|
+| Poloha | Kde se nachází střed dat | Průměr, medián, modus |
+| Variabilita | Jak moc se hodnoty liší | Rozptyl, směrodatná odchylka |
+| Šikmost | Asymetrii rozdělení | Kladná, záporná, nulová |
+| Špičatost | Tvar vrcholu a charakter ocasů rozdělení | Kladná, záporná, nulová excesní špičatost |
+
+### 6.1 Míry polohy
+
+Určují, kde se nachází střed nebo typická hodnota statistického souboru.
+
+Příklady:
+
+- Aritmetický průměr.
+- Medián.
+- Modus.
+
+### 6.2 Míry variability
+
+Vyjadřují, jak moc jsou jednotlivé hodnoty rozptýlené kolem středu.
+
+Příklady:
+
+- Rozptyl.
+- Směrodatná odchylka.
+
+Například:
+
+- Soubor A: 28, 29, 30, 31, 32.
+- Soubor B: 10, 20, 30, 40, 50.
+
+Oba soubory mají stejný průměr 30, ale soubor B má výrazně vyšší variabilitu.
+
+### 6.3 Míry šikmosti
+
+Popisují asymetrii statistického rozdělení.
+
+**Symetrické rozdělení:**
+
+- Šikmost je přibližně nulová.
+- Obě strany rozdělení mají podobný tvar.
+
+**Kladná šikmost (pravostranná):**
+
+- Dlouhý ocas směřuje doprava.
+- Většina hodnot se nachází na levé straně.
+- Typickým příkladem jsou příjmy obyvatel, kde několik osob dosahuje výrazně vyšších příjmů.
+
+**Záporná šikmost (levostranná):**
+
+- Dlouhý ocas směřuje doleva.
+- Většina hodnot se nachází na pravé straně.
+- Příkladem mohou být výsledky testu, ve kterém většina studentů dosáhla vysokého skóre a několik studentů velmi nízkého.
+
+### 6.4 Míry špičatosti
+
+Popisují tvar statistického rozdělení, zejména jeho koncentraci kolem středu a charakter ocasů ve srovnání s normálním rozdělením.
+
+- **Kladná excesní špičatost:** výraznější vrchol a těžší ocasy.
+- **Nulová excesní špičatost:** odpovídá normálnímu rozdělení.
+- **Záporná excesní špičatost:** plošší vrchol a lehčí ocasy.
+
+---
+
+## 7. Shrnutí kapitoly
+
+| Pojem | Význam |
+|---|---|
+| Jednorozměrný soubor | Sledujeme jednu statistickou proměnnou. |
+| Absolutní četnost | Počet hodnot v konkrétním intervalu. |
+| Relativní četnost | Podíl hodnot v intervalu vůči celému souboru. |
+| Kumulativní četnost | Postupný součet četností. |
+| Histogram | Grafické znázornění intervalových četností. |
+| Polygon četností | Spojení bodů představujících četnosti intervalů. |
+| Kvantil | Hodnota rozdělující seřazená data podle podílu. |
+| Medián | 50% kvantil. |
+| Kvartil | Rozdělení na 4 části. |
+| Kvintil | Rozdělení na 5 částí. |
+| Decil | Rozdělení na 10 částí. |
+| Percentil | Rozdělení na 100 částí. |
+| Interpolace | Odhad hodnoty mezi dvěma známými hodnotami. |
+| Šikmost | Popisuje asymetrii rozdělení. |
+| Špičatost | Popisuje tvar vrcholu a ocasů rozdělení. |
+
+### Nejdůležitější myšlenka celé kapitoly
+
+Při analýze jednorozměrného statistického souboru potřebujeme velké množství dat nejprve přehledně uspořádat a následně popsat jejich vlastnosti.
+
+K tomu používáme intervalové rozdělení četností a statistické charakteristiky, mezi které patří také kvantily.
+
+**První přístup nám ukazuje, jak jsou hodnoty rozděleny do intervalů. Druhý nám umožňuje popsat polohu, variabilitu a tvar celého statistického rozdělení.**
