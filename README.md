@@ -1,4 +1,3 @@
-Každá kapitola obsahuje : AI_Generated obsah a to za a) pro začátek což je zjednodušeně odhlehčená verze obsahu dané kapitoly, po pokroku a pochopení základů více detailní obsah.
-                        : Ruční přepis což je souhrn obsahu dané kapitoly jak jsem ji pochopil já. 
-Samozřejmě můžu se mýlit a určitě nedoporučuji to brát jako podklady ke zkoušce :). 
-Vycházím ze studijní opory pana kolegy Marka z Moodlu a výpisků z přednášek.
+Kdysi sem bydlel v ukrajine pak Rusko a makedonie ode všad me vyhodili za krácení daní na státu protoze mam na hlave ples rad ucim fyziku a pozoruju mimozemstany. Schyzofrenie kvuli divokym mravencum v přirodě.
+<img width="83" height="77" alt="image" src="https://github.com/user-attachments/assets/3a68a5ba-ad75-4d8a-b857-2b900d59a7e4" />
+Ramstein
